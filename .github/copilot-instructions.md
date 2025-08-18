@@ -113,6 +113,22 @@ src/ → Core engine with modular components:
 ├── handlers/         → Input/output processing, error management
 └── utils/            → Logging, caching, rate limiting, tokens
 ```
+### Frontend
+
+```
+Frontend/ → Core application logic:
+├── components/   → Shared UI components
+├── composables/  → Shared logic/composables
+├── config/       → App configuration
+├── features/     → Main feature modules
+├── layouts/      → Page layouts
+├── lib/          → Third-party library configs
+├── pages/        → Application pages
+├── services/     → Shared services/providers
+├── stores/       → Global state management
+├── types/        → Shared type definitions
+└── utils/        → Utility functions
+```
 
 ### Configuration and Data
 
