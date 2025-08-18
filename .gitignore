@@ -288,3 +288,12 @@ profiles.json
 # MSBuildCache
 /MSBuildCacheLogs/
 *.DS_Store
+
+# Node.js and npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs
+dist/
