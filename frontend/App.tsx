@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { SettingsProvider } from './stores/settingsStore';
 import { AuthProvider, useAuth } from './stores/authStore';
 import { Navigation } from './components/Navigation';
@@ -12,9 +12,24 @@ import './styles.css';
 
 const AppContent: React.FC = () => {
   const { isAuthenticated, isLoading } = useAuth();
+  const [currentHash, setCurrentHash] = useState(window.location.hash.slice(1) || '/');
   
-  // Simple routing based on hash
-  const currentHash = window.location.hash.slice(1) || '/';
+  // Handle hash changes without page reload
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash.slice(1) || '/');
+    };
+    
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // Redirect to dashboard when authenticated and on login/register pages
+  useEffect(() => {
+    if (isAuthenticated && (currentHash === '/login' || currentHash === '/register')) {
+      window.location.hash = '/dashboard';
+    }
+  }, [isAuthenticated, currentHash]);
   
   const renderPage = () => {
     if (isLoading) {
@@ -58,17 +73,6 @@ const AppContent: React.FC = () => {
         return <Dashboard />;
     }
   };
-
-  // Update navigation links to use hash routing
-  React.useEffect(() => {
-    const handleHashChange = () => {
-      // Force re-render when hash changes
-      window.location.reload();
-    };
-    
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
 
   return (
     <SettingsProvider>

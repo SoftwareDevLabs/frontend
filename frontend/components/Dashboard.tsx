@@ -27,7 +27,7 @@ const RoleBadge: React.FC<{ role: Role }> = ({ role }) => {
 };
 
 export const Dashboard: React.FC = () => {
-  const { user, logout, isLoading } = useAuth();
+  const { user, logout, isLoading, hasRole } = useAuth();
 
   if (!user) {
     return null;
@@ -120,12 +120,14 @@ export const Dashboard: React.FC = () => {
         
         <div className="px-6 py-4">
           <div className="flex flex-wrap gap-4">
-            <a
-              href="#/admin"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
-              Admin Panel
-            </a>
+            {hasRole('admin') && (
+              <a
+                href="#/admin"
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Admin Panel
+              </a>
+            )}
             
             <button
               onClick={handleRefreshProfile}
