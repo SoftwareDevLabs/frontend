@@ -215,6 +215,7 @@ setup.py              → Python package setup (currently empty)
 3. **Test before changing**: `PYTHONPATH=. python -m pytest test/ -v` to validate current state
 4. **Check module imports**: Ensure new Python modules have proper `__init__.py` files
 5. **Follow branch naming**: Use `dev/<alias>/<feature>` pattern for feature branches
+6. **Use the PR template**: When submitting a pull request, please use the provided template.
 
 **NEVER do the following:**
 - Run tests without setting PYTHONPATH
