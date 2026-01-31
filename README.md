@@ -170,6 +170,10 @@ If you would like to ask a question that you feel doesn't warrant an issue (yet)
 
 ## Developer Guidance
 
+We have a special set of instructions for AI agents working on this repository. Please review the [AGENTS.md](./AGENTS.md) file for more information.
+
+This repository has a CI/CD pipeline that automatically runs tests and checks for code quality. For the frontend, this includes linting and build checks. For the backend, it includes static analysis and unit tests.
+
 ## Prerequisites
 
 
