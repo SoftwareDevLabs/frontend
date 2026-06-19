@@ -29,3 +29,30 @@ This directory contains all the relevant source code important to the software.
 ```
 
 This is detailed folder structure for the frontend application: ![Frontend Folder Structure](/doc/images/frontend_folder_structure.webp)
+
+## Development
+
+To get started, install the dependencies and start the development server:
+
+```bash
+npm install
+npm run dev
+```
+
+## Linting
+
+To run the linter, use the following command:
+
+```bash
+npm run lint
+```
+
+## Testing
+
+To run the tests, use the following command:
+
+```bash
+npm run test
+```
+
+**Note:** The tests are currently not running due to a known environment issue. See `AGENTS.md` for more details.

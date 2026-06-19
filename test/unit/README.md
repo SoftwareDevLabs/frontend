@@ -1,7 +1,7 @@
 # Unit Tests
 This folder contains all the relevant information related to unit testing.
 
-## Run Unti Tests
+## Run Unit Tests
 Describe the details on how to run the unit tests
 
 ## Coverage
